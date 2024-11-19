@@ -165,8 +165,6 @@ attendance-system/
 ├── config.py              # Configuration (Firebase, email, secret key)
 ├── requirements.txt       # Python dependencies
 ├── serviceAccountKey.json # Firebase service account key
-├── students.csv           # Example CSV file for bulk student uploads
-├── upload_students.py     # Script for uploading students to Firebase
 ```
 
 ---
