@@ -184,30 +184,12 @@ Store sensitive data like Firebase credentials and SMTP passwords:
   EMAIL_USER=<your-email>
   EMAIL_PASSWORD=<your-app-password>
   ```
-
-### 7.2 Deploy to a Cloud Provider
-
-#### Heroku
-1. Install Heroku CLI and create an app:
-   ```bash
-   heroku create
-   git push heroku main
-   ```
-2. Set environment variables in the Heroku dashboard.
-
-#### Google Cloud Run
-1. Use Docker or Google Cloud Build to deploy.
-
-#### AWS Elastic Beanstalk
-1. Use `eb init` and `eb deploy` commands to set up and deploy the application.
-
+  
 ---
 
 ## 8. Troubleshooting
 
 ### Common Issues
-- **Flash Message Errors**:
-  Ensure `get_flashed_messages()` is used in templates to clear flash messages.
 - **Email Sending Issues**:
   Check SMTP credentials and verify App Passwords are set up correctly.
 - **Face Recognition Errors**:
