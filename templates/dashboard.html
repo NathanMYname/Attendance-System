@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="navbar">
+        <a href="/dashboard">Dashboard</a>
+        <a href="/logout" class="logout-link">Logout</a>
+    </div>
+    <div class="content">
+        <h1>Admin Dashboard</h1>
+
+        <form action="/start-attendance" method="post" style="display: inline-block;">
+            <button type="submit" class="button success">Start Attendance</button>
+        </form>
+        <form action="/stop-attendance" method="post" style="display: inline-block;">
+            <button type="submit" class="button danger">Stop Attendance</button>
+        </form>
+        <form action="/reset-attendance" method="post" style="display: inline-block;">
+            <button type="submit" class="button warning">Reset Attendance</button>
+        </form>
+
+        <h2>Absentees for Today</h2>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Student Name</th>
+                    <th>Status</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for student_id, student in summary.items() %}
+                <tr>
+                    <td>{{ student.name }}</td>
+                    <td>
+                        {% if student.status == 'Present' %}
+                            <span class="present">✔ Present</span>
+                        {% else %}
+                            <span class="absent">✘ Absent</span>
+                        {% endif %}
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        
+        {% with messages = get_flashed_messages() %}
+            {% if messages %}
+            <div class="flash-messages">
+                {% for message in messages %}
+                <div class="alert alert-danger">
+                    {{ message }}
+                </div>
+                {% endfor %}
+            </div>
+            {% endif %}
+        {% endwith %}
+        <a href="/export" class="button">Download Attendance CSV</a>
+    </div>
+</body>
+</html>
