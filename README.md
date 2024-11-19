@@ -1,4 +1,3 @@
-```markdown
 # Attendance System Documentation
 
 ## 1. Overview
@@ -225,6 +224,4 @@ Store sensitive data like Firebase credentials and SMTP passwords:
 - **Multi-Role Support**: Add roles for teachers, students, and admins.
 - **Attendance Reports**: Generate monthly or weekly attendance summaries.
 - **Daily Automated Reset**: Use a scheduler like Cron to reset attendance daily.
-```
 
-This is the complete documentation converted into Markdown format. Let me know if you need additional edits!
